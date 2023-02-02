@@ -10,7 +10,7 @@ resource "aws_security_group" "main" {
     from_port        = 5672
     to_port          = 5672
     protocol         = "tcp"
-    cidr_blocks      = [var.vpc_cidr_block]
+    cidr_blocks      = [var.vpc_cidr_block,var.WORKSTATION_IP]
 
   }
 
