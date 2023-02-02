@@ -4,7 +4,7 @@ data "aws_ssm_parameter" "credentials" {
 }
 
 data "aws_ssm_parameter" "ssh_credentials" {
-  name = "ssh.credentails"
+  name = "ssh_credentails"
 
 }
 
