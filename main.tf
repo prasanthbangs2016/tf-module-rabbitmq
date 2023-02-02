@@ -61,9 +61,10 @@ resource "null_resource" "ansible_apply" {
   provisioner "remote-exec" {
     connection {
       host = aws_spot_instance_request.rabbitmq.private_ip
-      user = "centos"
-      //password = local.ssh_password
-      password = "DevOps321"
+      //user = "centos"
+      user = local.username
+      password = local.ssh_password
+      //password = "DevOps321"
 
     }
     inline = [
