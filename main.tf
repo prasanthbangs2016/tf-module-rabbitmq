@@ -48,21 +48,21 @@ resource "aws_ec2_tag" "name" {
   value = "Roboshop-${var.env}-rabbitmq"
 }
 
-resource "null_resource" "ansible_apply" {
-  provisioner "remote-exec" {
-    connection {
-      host = aws_spot_instance_request.rabbitmq.private_ip
-      user = "centos"
-      //password = local.ssh_password
-      password = "DevOps321"
-
-    }
-    inline = [
-      "ansible-pull -i localhost, -U https://github.com/prasanthbangs2016/roboshop-mutable-ansible   -e HOST=localhost -e APP_COMPONENT_ROLE=rabbitmq -e ENV=${var.env} -e RABBITMQ_PASSWORD=${local.password}"
-      #"echo Prashanth"
-    ]
-  }
-}
+#resource "null_resource" "ansible_apply" {
+#  provisioner "remote-exec" {
+#    connection {
+#      host = aws_spot_instance_request.rabbitmq.private_ip
+#      user = "centos"
+#      //password = local.ssh_password
+#      password = "DevOps321"
+#
+#    }
+#    inline = [
+#      "ansible-pull -i localhost, -U https://github.com/prasanthbangs2016/roboshop-mutable-ansible   -e HOST=localhost -e APP_COMPONENT_ROLE=rabbitmq -e ENV=${var.env} -e RABBITMQ_PASSWORD=${local.password}"
+#      #"echo Prashanth"
+#    ]
+#  }
+#}
 
 
 
