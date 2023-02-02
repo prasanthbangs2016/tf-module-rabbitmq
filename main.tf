@@ -1,8 +1,8 @@
 #creating security group for db
 
 resource "aws_security_group" "main" {
-  name        = "roboshop-${var.env}-docdb"
-  description = "roboshop-${var.env}-docdb"
+  name        = "roboshop-${var.env}-rabbitmq"
+  description = "roboshop-${var.env}-rabbitmq"
   vpc_id      = var.vpc_id
 
   ingress {
