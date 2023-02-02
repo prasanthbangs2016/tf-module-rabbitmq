@@ -25,7 +25,7 @@ resource "aws_security_group" "main" {
 
 
   tags = {
-    Name = "Roboshop-${var.env}-docdb"
+    Name = "Roboshop-${var.env}-rabbitmq"
   }
 }
 
@@ -40,6 +40,12 @@ resource aws_spot_instance_request "rabbitmq" {
 
   }
 
+}
+
+resource "aws_ec2_tag" "name" {
+  resource_id = aws_spot_instance_request.rabbitmq.spot_instance_id
+  key = "Name"
+  value = "Roboshop-${var.env}-rabbitmq"
 }
 
 
