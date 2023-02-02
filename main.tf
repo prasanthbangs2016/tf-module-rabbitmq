@@ -4,7 +4,7 @@ resource "aws_security_group" "main" {
   name        = "roboshop-${var.env}-rabbitmq"
   description = "roboshop-${var.env}-rabbitmq"
   vpc_id      = var.vpc_id
-
+#to instance
   ingress {
     description      = "rabbitmq"
     from_port        = 5672
@@ -20,6 +20,15 @@ resource "aws_security_group" "main" {
     to_port          = 22
     protocol         = "tcp"
     cidr_blocks      = [var.vpc_cidr_block,var.WORKSTATION_IP]
+
+  }
+#outbound from instance
+  egress {
+    description      = "egress"
+    from_port        = -1
+    to_port          = -1
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
 
   }
 
