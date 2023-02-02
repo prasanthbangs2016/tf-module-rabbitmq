@@ -14,6 +14,15 @@ resource "aws_security_group" "main" {
 
   }
 
+  ingress {
+    description      = "ssh"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = [var.vpc_cidr_block,var.WORKSTATION_IP]
+
+  }
+
 
   tags = {
     Name = "Roboshop-${var.env}-docdb"
