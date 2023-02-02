@@ -1,5 +1,6 @@
 data "aws_ssm_parameter" "credentials" {
-  name = "mutable.rabbitmq.${var.env}.credentials"
+  name = "mutable.rabbitmq.${var.env}.credentails"
+
 }
 
 data "aws_ami" "ami" {
