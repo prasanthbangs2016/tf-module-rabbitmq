@@ -68,8 +68,6 @@ resource "null_resource" "ansible_apply" {
 
     }
     inline = [
-     #"echo prashanth"
-      #"sudo labauto ansible",
       "ansible-pull -i localhost, -U https://github.com/prasanthbangs2016/roboshop-mutable-ansible--v2 roboshop.yml -e HOSTS=localhost -e APP_COMPONENT_ROLE=rabbitmq -e ENV=${var.env} -e RABBITMQ_PASSWORD=${local.password} &>/tmp/rabbitmq.log"
     ]
   }
