@@ -1,7 +1,7 @@
 resource "aws_iam_policy" "parameter-store-access" {
-  name        = "RoboShop_${var.COMPONENT}_${var.env}_ParameterStore_Access"
+  name        = "RoboShop_${var.env}_ParameterStore_Access"
   path        = "/"
-  description = "RoboShop_${var.COMPONENT}_${var.env}_ParameterStore_Access"
+  description = "RoboShop_${var.env}_ParameterStore_Access"
 
   policy = jsonencode({
     "Version" : "2012-10-17",
@@ -28,7 +28,7 @@ resource "aws_iam_policy" "parameter-store-access" {
 }
 
 resource "aws_iam_role" "parameter-store-access" {
-  name = "RoboShop_${var.COMPONENT}_${var.env}_ParameterStore_Access"
+  name = "RoboShop_${var.env}_ParameterStore_Access"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -45,7 +45,7 @@ resource "aws_iam_role" "parameter-store-access" {
   })
 
   tags = {
-    tag-key = "RoboShop_${var.COMPONENT}_${var.env}_ParameterStore_Access"
+    tag-key = "RoboShop_${var.env}_ParameterStore_Access"
   }
 }
 
@@ -55,7 +55,7 @@ resource "aws_iam_role_policy_attachment" "role-attach" {
 }
 
 resource "aws_iam_instance_profile" "parameter-store-access" {
-  name = "RoboShop_${var.COMPONENT}_${var.env}_ParameterStore_Access"
+  name = "RoboShop_${var.env}_ParameterStore_Access"
   role = aws_iam_role.parameter-store-access.name
 }
 
